@@ -7,6 +7,10 @@ complexity:
   LongParameterList:
     ignoreDefaultParameters: true # it seems ok to have many parameters in Composables
 
+formatting:
+  MaximumLineLength:
+    active: false # Duplicates MaxLineLength rule
+
 style:
   UnusedPrivateMember:
     active: false # because of Composable Previews

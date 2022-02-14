@@ -62,6 +62,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.uiTooling)
     implementation(libs.androidx.activity.compose)
     implementation(libs.accompanist.systemUiController)
+    implementation(libs.accompanist.insets)
 
     detektPlugins(libs.detekt.formatting)
 }
