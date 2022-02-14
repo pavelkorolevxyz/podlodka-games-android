@@ -5,9 +5,10 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.BackgroundSurface
+import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
 
 @Composable
-fun GameScreen() {
+fun GameScreen(game: GameDetails) {
     val systemUiController = rememberSystemUiController()
     SideEffect {
         systemUiController.setStatusBarColor(
