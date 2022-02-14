@@ -1,0 +1,56 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    compileSdk = 31
+
+    defaultConfig {
+        applicationId = "xyz.pavelkorolevxyz.podlodka.games"
+        minSdk = 21
+        targetSdk = 31
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+
+            isShrinkResources = false
+            isMinifyEnabled = false
+        }
+        release {
+            isShrinkResources = true
+            isMinifyEnabled = true
+
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+
+    buildFeatures {
+        buildConfig = false
+        compose = true
+    }
+
+    lint {
+        checkReleaseBuilds = false
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.androidx.compose.get()
+    }
+}
+
+dependencies {
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.compose.uiToolingPreview)
+    implementation(libs.androidx.activity.compose)
+    debugImplementation(libs.androidx.compose.uiTooling)
+}
