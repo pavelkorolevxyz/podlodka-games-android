@@ -9,8 +9,10 @@ android {
 
     defaultConfig {
         applicationId = "xyz.pavelkorolevxyz.podlodka.games"
+
         minSdk = 21
         targetSdk = 31
+
         versionCode = 1
         versionName = "1.0"
     }
@@ -57,8 +59,9 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.uiToolingPreview)
-    implementation(libs.androidx.activity.compose)
     debugImplementation(libs.androidx.compose.uiTooling)
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.accompanist.systemUiController)
 
     detektPlugins(libs.detekt.formatting)
 }
