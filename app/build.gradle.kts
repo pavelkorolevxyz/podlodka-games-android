@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 android {
@@ -28,7 +29,7 @@ android {
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -47,10 +48,17 @@ android {
     }
 }
 
+detekt {
+    config = files("$rootDir/config/detekt.yml")
+    buildUponDefaultConfig = true
+}
+
 dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.uiToolingPreview)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.androidx.compose.uiTooling)
+
+    detektPlugins(libs.detekt.formatting)
 }

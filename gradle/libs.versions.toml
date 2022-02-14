@@ -1,6 +1,7 @@
 [versions]
 kotlin = "1.5.31"
 androidx-compose = "1.1.0-beta01"
+detekt = "1.19.0"
 
 [libraries]
 androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose" }
@@ -8,3 +9,4 @@ androidx-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling", versio
 androidx-compose-uiToolingPreview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidx-compose" }
 androidx-compose-material = { module = "androidx.compose.material3:material3", version = "1.0.0-alpha05" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.4.0" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
