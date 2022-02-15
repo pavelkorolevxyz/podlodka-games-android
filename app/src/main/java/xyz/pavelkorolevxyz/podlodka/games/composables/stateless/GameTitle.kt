@@ -55,7 +55,6 @@ fun GameTitle(
                     Text(
                         text = ratingNumber,
                         style = MaterialTheme.typography.labelMedium,
-                        color = Abbey,
                     )
                 }
             }

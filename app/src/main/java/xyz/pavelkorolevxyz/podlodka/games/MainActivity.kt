@@ -9,6 +9,8 @@ import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
 import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
 import xyz.pavelkorolevxyz.podlodka.games.data.RatingInfo
+import xyz.pavelkorolevxyz.podlodka.games.data.Review
+import xyz.pavelkorolevxyz.podlodka.games.data.User
 import xyz.pavelkorolevxyz.podlodka.games.screens.GameScreen
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
 
@@ -46,5 +48,24 @@ fun createMockGame(): GameDetails = GameDetails(
         rating = 4.6,
         number = "70M",
     ),
-    reviews = emptyList(),
+    reviews = listOf(
+        Review(
+            author = User(
+                avatar = R.drawable.avatar_auguste,
+                name = "Auguste Conte",
+            ),
+            date = "February 14, 2019",
+            message = "“Once you start to learn its secrets, there’s a wild and exciting variety " +
+                "of play here that’s unmatched, even by its peers.”",
+        ),
+        Review(
+            author = User(
+                avatar = R.drawable.avatar_jang,
+                name = "Jang Marcelino",
+            ),
+            date = "February 14, 2019",
+            message = "“Once you start to learn its secrets, there’s a wild and exciting variety " +
+                "of play here that’s unmatched, even by its peers.”",
+        ),
+    ),
 )

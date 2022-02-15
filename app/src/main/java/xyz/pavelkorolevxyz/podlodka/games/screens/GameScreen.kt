@@ -1,9 +1,6 @@
 package xyz.pavelkorolevxyz.podlodka.games.screens
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -13,9 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.composables.InstallButton
 import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.*
 import xyz.pavelkorolevxyz.podlodka.games.createMockGame
@@ -34,7 +33,9 @@ fun GameScreen(game: GameDetails) {
         modifier = Modifier.navigationBarsPadding(),
     ) {
         LazyColumn(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize(),
+            contentPadding = PaddingValues(bottom = 100.dp),
         ) {
             item {
                 HeaderImage(painter = painterResource(id = game.headerImage))
@@ -55,6 +56,28 @@ fun GameScreen(game: GameDetails) {
                     text = game.description,
                     style = MaterialTheme.typography.bodyMedium,
                 )
+            }
+            item {
+                Text(
+                    modifier = Modifier.padding(horizontal = 24.dp),
+                    text = stringResource(id = R.string.reviews_title),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+            }
+            item {
+                ReviewsTitle(
+                    rating = game.ratingInfo.rating,
+                    ratingNumber = game.ratingInfo.number,
+                )
+            }
+            val reviews = game.reviews
+            for ((index, review) in reviews.withIndex()) {
+                item {
+                    Review(
+                        review = review,
+                        isLast = index == reviews.lastIndex,
+                    )
+                }
             }
         }
         Box(
