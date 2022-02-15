@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
 
@@ -20,13 +21,13 @@ fun GameTitle(
     ratingNumber: String,
 ) {
     Box(
-        // modifier = Modifier.offset(y = (-86).dp), // TODO
+        modifier = Modifier.fillMaxHeight(),
         contentAlignment = Alignment.BottomCenter,
     ) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(90.dp)
+                .height(88.dp)
                 .clip(RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp))
                 .background(MaterialTheme.colorScheme.background),
         )
@@ -44,13 +45,13 @@ fun GameTitle(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(7.dp))
                 Row(
                     modifier = Modifier.padding(bottom = 8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     RatingBar(rating)
-                    Spacer(modifier = Modifier.width(12.dp))
+                    Spacer(modifier = Modifier.width(10.dp))
                     Text(
                         text = ratingNumber,
                         style = MaterialTheme.typography.labelMedium,
@@ -59,4 +60,10 @@ fun GameTitle(
             }
         }
     }
+}
+
+@Preview
+@Composable
+private fun GameTitlePreview() {
+    GameTitle(title = "DoTA 2", rating = 4.5, ratingNumber = "10K")
 }

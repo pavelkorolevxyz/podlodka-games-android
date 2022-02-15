@@ -19,7 +19,7 @@ fun LogoImage(painter: Painter) {
     val shape = RoundedCornerShape(12.dp)
     Image(
         modifier = Modifier
-            .size(84.dp)
+            .size(88.dp)
             .border(2.dp, EbonyClay, shape)
             .clip(shape),
         painter = painter,

@@ -3,6 +3,8 @@ package xyz.pavelkorolevxyz.podlodka.games.screens
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
@@ -18,7 +20,13 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.composables.InstallButton
-import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.*
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.GameTitle
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.HeaderImage
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.MediaCarousel
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.Review
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.ReviewsTitle
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.TagsFlowRow
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.TopAppBar
 import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
 
 @Composable
@@ -37,14 +45,18 @@ fun GameScreen(game: GameDetails) {
             contentPadding = PaddingValues(bottom = 100.dp),
         ) {
             item {
-                HeaderImage(painter = painterResource(id = game.headerImage))
-            }
-            item {
-                GameTitle(
-                    title = game.title,
-                    rating = game.ratingInfo.rating,
-                    ratingNumber = game.ratingInfo.number,
-                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(374.dp),
+                ) {
+                    HeaderImage(painter = painterResource(id = game.headerImage))
+                    GameTitle(
+                        title = game.title,
+                        rating = game.ratingInfo.rating,
+                        ratingNumber = game.ratingInfo.number,
+                    )
+                }
             }
             item {
                 TagsFlowRow(tags = game.tags)

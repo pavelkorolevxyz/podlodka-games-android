@@ -14,7 +14,7 @@ fun HeaderImage(painter: Painter) {
     Image(
         modifier = Modifier
             .fillMaxWidth()
-            .height(320.dp),
+            .height(327.dp),
         painter = painter,
         contentDescription = "Header",
         contentScale = ContentScale.Crop,

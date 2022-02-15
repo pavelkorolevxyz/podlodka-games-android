@@ -29,7 +29,7 @@ fun TagsFlowRow(tags: List<String>) {
                     .background(PictonBlue24),
             ) {
                 Text(
-                    modifier = Modifier.padding(10.dp, 5.dp),
+                    modifier = Modifier.padding(horizontal = 10.dp, vertical = 5.dp),
                     text = tag.uppercase(),
                     style = MaterialTheme.typography.labelSmall,
                     color = PictonBlue,
