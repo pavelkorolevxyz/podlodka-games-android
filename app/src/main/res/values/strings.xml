@@ -2,4 +2,6 @@
 
     <string name="app_name">Podlodka Games</string>
 
+    <string name="action_install">Install</string>
+
 </resources>
