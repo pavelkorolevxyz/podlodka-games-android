@@ -58,6 +58,11 @@ fun GameScreen(game: GameDetails) {
                 )
             }
             item {
+                MediaCarousel(
+                    mediaList = game.mediaList,
+                )
+            }
+            item {
                 Text(
                     modifier = Modifier.padding(horizontal = 24.dp),
                     text = stringResource(id = R.string.reviews_title),

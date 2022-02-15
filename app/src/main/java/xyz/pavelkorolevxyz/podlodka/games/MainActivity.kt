@@ -7,10 +7,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
-import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
-import xyz.pavelkorolevxyz.podlodka.games.data.RatingInfo
-import xyz.pavelkorolevxyz.podlodka.games.data.Review
-import xyz.pavelkorolevxyz.podlodka.games.data.User
+import xyz.pavelkorolevxyz.podlodka.games.data.*
 import xyz.pavelkorolevxyz.podlodka.games.screens.GameScreen
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
 
@@ -44,6 +41,16 @@ fun createMockGame(): GameDetails = GameDetails(
         "of five players compete to collectively destroy a large structure defended by the " +
         "opposing team known as the \"Ancient\", whilst defending their own.",
     tags = listOf("moba", "multiplayer", "strategy"),
+    mediaList = listOf(
+        Media(
+            thumbnail = R.drawable.screenshot_dota_1,
+            isVideo = true,
+        ),
+        Media(
+            thumbnail = R.drawable.screenshot_dota_2,
+            isVideo = false,
+        ),
+    ),
     ratingInfo = RatingInfo(
         rating = 4.6,
         number = "70M",

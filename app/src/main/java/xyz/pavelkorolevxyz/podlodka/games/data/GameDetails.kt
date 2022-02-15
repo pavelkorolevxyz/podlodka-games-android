@@ -8,6 +8,7 @@ data class GameDetails(
     val title: String,
     val description: String,
     val tags: List<String>,
+    val mediaList: List<Media>,
     val ratingInfo: RatingInfo,
     val reviews: List<Review>,
 )
