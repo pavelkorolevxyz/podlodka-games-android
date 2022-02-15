@@ -19,6 +19,16 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        getByName("debug")
+        create("release") {
+            storeFile = rootDir.resolve("keystore.jks")
+            storePassword = "podlodka"
+            keyAlias = "podlodka-games-android"
+            keyPassword = "podlodka"
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix = ".debug"
@@ -30,6 +40,8 @@ android {
         release {
             isShrinkResources = true
             isMinifyEnabled = true
+
+            signingConfig = signingConfigs.getByName("release")
 
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -59,6 +71,7 @@ tasks.withType<KotlinCompile>() {
 }
 
 detekt {
+    ignoreFailures = false
     config = files("$rootDir/config/detekt.yml")
     buildUponDefaultConfig = true
 }

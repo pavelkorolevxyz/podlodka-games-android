@@ -1,0 +1,40 @@
+name: Post Merge
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  pipeline:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up environment
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Android Lint
+        run: ./gradlew lintRelease
+
+      - name: detekt
+        run: ./gradlew detekt
+
+      - name: Assemble
+        run: ./gradlew assembleRelease
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: podlodka-games-android
+          path: "app/build/outputs/apk/release/app-release.apk"
+
+      - name: Upload Lint report
+        uses: actions/upload-artifact@v2
+        with:
+          name: lint-report
+          path: "**/build/reports/*.html"
