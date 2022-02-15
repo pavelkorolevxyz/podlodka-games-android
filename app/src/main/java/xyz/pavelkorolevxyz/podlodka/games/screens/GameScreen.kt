@@ -14,13 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.composables.InstallButton
 import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.*
-import xyz.pavelkorolevxyz.podlodka.games.createMockGame
 import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
 
 @Composable
@@ -95,10 +93,4 @@ fun GameScreen(game: GameDetails) {
     }
     TopOverlay()
     TopAppBar()
-}
-
-@Preview
-@Composable
-private fun GameScreenPreview() {
-    GameScreen(game = createMockGame())
 }
