@@ -91,6 +91,5 @@ fun GameScreen(game: GameDetails) {
             InstallButton()
         }
     }
-    TopOverlay()
     TopAppBar()
 }

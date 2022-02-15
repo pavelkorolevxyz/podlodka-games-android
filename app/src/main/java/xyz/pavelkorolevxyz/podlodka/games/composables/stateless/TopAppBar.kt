@@ -13,6 +13,7 @@ import xyz.pavelkorolevxyz.podlodka.games.R
 
 @Composable
 fun TopAppBar() {
+    TopOverlay()
     Box(
         modifier = Modifier
             .fillMaxWidth()
