@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -50,6 +52,12 @@ android {
     }
 }
 
+tasks.withType<KotlinCompile>() {
+    kotlinOptions.freeCompilerArgs += listOf(
+        "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+    )
+}
+
 detekt {
     config = files("$rootDir/config/detekt.yml")
     buildUponDefaultConfig = true
@@ -63,6 +71,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(libs.accompanist.systemUiController)
     implementation(libs.accompanist.insets)
+    implementation(libs.accompanist.flowLayout)
 
     detektPlugins(libs.detekt.formatting)
 }

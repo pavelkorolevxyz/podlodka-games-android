@@ -3,6 +3,7 @@ package xyz.pavelkorolevxyz.podlodka.games
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
@@ -26,7 +27,9 @@ class MainActivity : ComponentActivity() {
 fun MainContent() {
     PodlodkaGamesTheme {
         ProvideWindowInsets {
-            GameScreen(game = createMockGame())
+            Scaffold {
+                GameScreen(game = createMockGame())
+            }
         }
     }
 }
@@ -40,7 +43,7 @@ fun createMockGame(): GameDetails = GameDetails(
         "opposing team known as the \"Ancient\", whilst defending their own.",
     tags = listOf("moba", "multiplayer", "strategy"),
     ratingInfo = RatingInfo(
-        rating = 4.9,
+        rating = 4.6,
         number = "70M",
     ),
     reviews = emptyList(),
