@@ -12,7 +12,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Abbey
 
 @Composable
 fun GameTitle(
