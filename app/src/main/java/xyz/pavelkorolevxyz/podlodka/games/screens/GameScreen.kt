@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.HeaderImage
+import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.TopAppBar
 import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.TopOverlay
 import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
 
@@ -25,4 +26,5 @@ fun GameScreen(game: GameDetails) {
         }
     }
     TopOverlay()
+    TopAppBar()
 }
