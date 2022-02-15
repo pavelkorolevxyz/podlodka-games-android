@@ -1,7 +1,7 @@
 [versions]
-kotlin = "1.5.31"
-androidx-compose = "1.1.0-beta01"
-accompanist = "0.24.2-alpha"
+kotlin = "1.6.10"
+androidx-compose = "1.1.0"
+accompanist = "0.23.0"
 detekt = "1.19.0"
 
 [libraries]
