@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.data.Review
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Aluminium
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.White40
 
 @Composable
@@ -43,6 +44,7 @@ fun Review(
         Text(
             text = review.message,
             style = MaterialTheme.typography.bodyMedium,
+            color = Aluminium,
         )
     }
 }

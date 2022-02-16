@@ -74,7 +74,7 @@ fun GameScreen(game: GameDetails) {
                     Text(
                         modifier = Modifier.padding(24.dp),
                         text = game.description,
-                        style = MaterialTheme.typography.bodyMedium,
+                        style = MaterialTheme.typography.bodySmall,
                     )
                 }
                 item {

@@ -28,6 +28,7 @@ val Typography = Typography(
         fontFamily = skModernistFontFamily,
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
+        letterSpacing = 0.6.sp,
         color = LinkWater,
     ),
     labelMedium = TextStyle(
@@ -41,10 +42,18 @@ val Typography = Typography(
         fontWeight = FontWeight.Medium,
         fontSize = 10.sp,
     ),
+    bodySmall = TextStyle(
+        fontFamily = skModernistFontFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 12.sp,
+        lineHeight = 19.sp,
+        color = LinkWater70,
+    ),
     bodyMedium = TextStyle(
         fontFamily = skModernistFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
+        letterSpacing = 0.5.sp,
         lineHeight = 19.sp,
         color = LinkWater70,
     ),
