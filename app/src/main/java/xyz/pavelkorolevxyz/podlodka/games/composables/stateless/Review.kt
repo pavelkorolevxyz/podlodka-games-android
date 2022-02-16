@@ -14,7 +14,6 @@ import xyz.pavelkorolevxyz.podlodka.games.ui.theme.White40
 @Composable
 fun Review(
     review: Review,
-    isLast: Boolean,
 ) {
     Column(
         modifier = Modifier.padding(horizontal = 24.dp, vertical = 24.dp),
@@ -45,8 +44,5 @@ fun Review(
             text = review.message,
             style = MaterialTheme.typography.bodyMedium,
         )
-    }
-    if (!isLast) {
-        Separator()
     }
 }

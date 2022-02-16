@@ -2,6 +2,7 @@ package xyz.pavelkorolevxyz.podlodka.games.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -76,13 +77,10 @@ fun GameScreen(game: GameDetails) {
                     ratingNumber = game.ratingInfo.number,
                 )
             }
-            val reviews = game.reviews
-            for ((index, review) in reviews.withIndex()) {
-                item {
-                    Review(
-                        review = review,
-                        isLast = index == reviews.lastIndex,
-                    )
+            itemsIndexed(game.reviews) { index, item ->
+                Review(review = item)
+                if (index < game.reviews.lastIndex) {
+                    Separator()
                 }
             }
         }
