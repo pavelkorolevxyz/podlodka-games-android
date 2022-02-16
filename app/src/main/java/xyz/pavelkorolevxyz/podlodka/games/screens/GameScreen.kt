@@ -26,7 +26,10 @@ import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.*
 import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
 
 @Composable
-fun GameScreen(game: GameDetails) {
+fun GameScreen(
+    game: GameDetails,
+    onBackClick: () -> Unit,
+) {
     val systemUiController = rememberSystemUiController()
     SideEffect {
         systemUiController.setSystemBarsColor(
@@ -105,6 +108,8 @@ fun GameScreen(game: GameDetails) {
             }
             TopAppBar(
                 modifier = Modifier.navigationBarsPadding(),
+                onNavigationItemClick = onBackClick,
+                onActionClick = {},
             )
         }
     }

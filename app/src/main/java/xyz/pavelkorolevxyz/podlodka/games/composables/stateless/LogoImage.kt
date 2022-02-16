@@ -23,7 +23,7 @@ fun LogoImage(painter: Painter) {
             .border(2.dp, EbonyClay, shape)
             .clip(shape),
         painter = painter,
-        contentDescription = "Logo",
+        contentDescription = null,
     )
 }
 

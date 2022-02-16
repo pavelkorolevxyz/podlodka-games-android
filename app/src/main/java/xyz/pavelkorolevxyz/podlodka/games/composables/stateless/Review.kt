@@ -24,7 +24,7 @@ fun Review(
             Image(
                 modifier = Modifier.size(36.dp),
                 painter = painterResource(id = author.avatar),
-                contentDescription = author.name,
+                contentDescription = null,
             )
             Spacer(modifier = Modifier.width(16.dp))
             Column {

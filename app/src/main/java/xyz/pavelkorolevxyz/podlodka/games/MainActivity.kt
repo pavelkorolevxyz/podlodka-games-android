@@ -6,7 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
-import xyz.pavelkorolevxyz.podlodka.games.data.*
+import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
+import xyz.pavelkorolevxyz.podlodka.games.data.Media
+import xyz.pavelkorolevxyz.podlodka.games.data.RatingInfo
+import xyz.pavelkorolevxyz.podlodka.games.data.Review
+import xyz.pavelkorolevxyz.podlodka.games.data.User
 import xyz.pavelkorolevxyz.podlodka.games.screens.GameScreen
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
 
@@ -16,16 +20,23 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
-            MainContent()
+            MainContent(
+                onBackClick = {
+                    finish()
+                },
+            )
         }
     }
 }
 
 @Composable
-fun MainContent() {
+fun MainContent(onBackClick: () -> Unit) {
     PodlodkaGamesTheme {
         ProvideWindowInsets {
-            GameScreen(game = createMockGame())
+            GameScreen(
+                game = createMockGame(),
+                onBackClick = onBackClick,
+            )
         }
     }
 }
