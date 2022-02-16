@@ -1,16 +1,15 @@
 package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.EbonyClay
@@ -21,9 +20,9 @@ fun RatingBar(
     rating: Double,
     count: Int = 5,
 ) {
-    Row() {
+    Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
         for (i in 0 until count) {
-            RatingBarStar(i, rating, count)
+            RatingBarStar(i, rating)
         }
     }
 }
@@ -32,7 +31,6 @@ fun RatingBar(
 fun RatingBarStar(
     index: Int,
     rating: Double,
-    count: Int,
 ) {
     Box {
         val starPainter = painterResource(id = R.drawable.ic_star)
@@ -45,9 +43,16 @@ fun RatingBarStar(
         val modifier = if (part > 1) {
             Modifier
         } else {
-            Modifier.drawWithContent {
-                clipRect(right = size.width * part.toFloat()) {
-                    this@drawWithContent.drawContent()
+            when (LocalLayoutDirection.current) {
+                LayoutDirection.Ltr -> Modifier.drawWithContent {
+                    clipRect(right = size.width * part.toFloat()) {
+                        this@drawWithContent.drawContent()
+                    }
+                }
+                LayoutDirection.Rtl -> Modifier.drawWithContent {
+                    clipRect(left = size.width - size.width * part.toFloat()) {
+                        this@drawWithContent.drawContent()
+                    }
                 }
             }
         }
@@ -57,9 +62,6 @@ fun RatingBarStar(
             contentDescription = null,
             tint = Saffron,
         )
-    }
-    if (index < count - 1) {
-        Spacer(modifier = Modifier.width(4.dp))
     }
 }
 
