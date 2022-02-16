@@ -3,12 +3,9 @@ package xyz.pavelkorolevxyz.podlodka.games
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
-import com.google.accompanist.insets.navigationBarsPadding
 import xyz.pavelkorolevxyz.podlodka.games.data.*
 import xyz.pavelkorolevxyz.podlodka.games.screens.GameScreen
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
@@ -28,11 +25,7 @@ class MainActivity : ComponentActivity() {
 fun MainContent() {
     PodlodkaGamesTheme {
         ProvideWindowInsets {
-            Scaffold(
-                modifier = Modifier.navigationBarsPadding(),
-            ) {
-                GameScreen(game = createMockGame())
-            }
+            GameScreen(game = createMockGame())
         }
     }
 }

@@ -16,25 +16,34 @@ import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PictonBlue
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PictonBlue24
 
 @Composable
-fun TagsFlowRow(tags: List<String>) {
+fun TagsFlowRow(
+    tags: List<String>,
+    onTagClick: (String) -> Unit,
+) {
     FlowRow(
         modifier = Modifier.padding(horizontal = 24.dp),
         mainAxisSpacing = 10.dp,
         crossAxisSpacing = 10.dp,
     ) {
         for (tag in tags) {
-            Tag(title = tag)
+            Tag(
+                title = tag,
+                onClick = { onTagClick(tag) },
+            )
         }
     }
 }
 
 @Composable
-fun Tag(title: String) {
+fun Tag(
+    title: String,
+    onClick: () -> Unit,
+) {
     Button(
         modifier = Modifier.height(22.dp),
-        onClick = {},
         colors = ButtonDefaults.buttonColors(containerColor = PictonBlue24),
         contentPadding = PaddingValues(),
+        onClick = onClick,
     ) {
         Text(
             modifier = Modifier.padding(horizontal = 10.dp),
@@ -48,11 +57,17 @@ fun Tag(title: String) {
 @Preview
 @Composable
 private fun TagPreview() {
-    Tag("Tag")
+    Tag(
+        title = "Tag",
+        onClick = {},
+    )
 }
 
 @Preview
 @Composable
 private fun TagsFlowRowPreview() {
-    TagsFlowRow(tags = listOf("strategy", "action", "shooter"))
+    TagsFlowRow(
+        tags = listOf("strategy", "action", "shooter"),
+        onTagClick = {},
+    )
 }

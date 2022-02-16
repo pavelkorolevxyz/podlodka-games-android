@@ -12,10 +12,12 @@ import com.google.accompanist.insets.statusBarsPadding
 import xyz.pavelkorolevxyz.podlodka.games.R
 
 @Composable
-fun TopAppBar() {
+fun TopAppBar(
+    modifier: Modifier = Modifier,
+) {
     TopOverlay()
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .statusBarsPadding()
             .padding(24.dp),
