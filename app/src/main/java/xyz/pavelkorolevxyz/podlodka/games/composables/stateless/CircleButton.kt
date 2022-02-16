@@ -1,6 +1,7 @@
 package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -8,6 +9,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -24,8 +26,9 @@ import xyz.pavelkorolevxyz.podlodka.games.ui.theme.White28
 fun CircleButton(
     painter: Painter,
     contentDescription: String,
-    modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val strokeGradient = Brush.linearGradient(
         colors = listOf(
@@ -40,6 +43,7 @@ fun CircleButton(
         border = BorderStroke(1.dp, strokeGradient),
         colors = ButtonDefaults.buttonColors(containerColor = White28),
         onClick = onClick,
+        interactionSource = interactionSource,
     ) {
         Icon(
             painter = painter,
