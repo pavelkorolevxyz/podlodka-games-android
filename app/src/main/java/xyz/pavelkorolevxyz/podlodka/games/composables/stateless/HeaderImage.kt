@@ -10,9 +10,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HeaderImage(painter: Painter) {
+fun HeaderImage(
+    painter: Painter,
+    modifier: Modifier = Modifier,
+) {
     Image(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(327.dp),
         painter = painter,

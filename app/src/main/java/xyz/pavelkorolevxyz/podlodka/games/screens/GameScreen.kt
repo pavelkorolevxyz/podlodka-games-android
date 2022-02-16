@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.FabPosition
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -14,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -46,12 +48,14 @@ fun GameScreen(
         floatingActionButtonPosition = FabPosition.Center,
     ) { padding ->
         Box {
+            val lazyListState = rememberLazyListState()
             LazyColumn(
                 contentPadding = rememberInsetsPaddingValues(
                     insets = LocalWindowInsets.current.systemBars,
                     applyTop = false,
                     additionalBottom = padding.calculateBottomPadding() + 96.dp,
                 ),
+                state = lazyListState,
             ) {
                 item {
                     Box(
@@ -59,7 +63,13 @@ fun GameScreen(
                             .fillMaxWidth()
                             .height(374.dp),
                     ) {
-                        HeaderImage(painter = painterResource(id = game.headerImage))
+                        HeaderImage(
+                            modifier = Modifier.graphicsLayer {
+                                val firstVisibleItemScrollOffset = lazyListState.firstVisibleItemScrollOffset
+                                translationY = 0.12f * firstVisibleItemScrollOffset
+                            },
+                            painter = painterResource(id = game.headerImage),
+                        )
                         GameTitle(
                             title = game.title,
                             rating = game.ratingInfo.rating,
