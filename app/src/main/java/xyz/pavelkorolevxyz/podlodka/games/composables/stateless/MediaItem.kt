@@ -27,6 +27,7 @@ fun MediaItem(media: Media) {
         )
         if (media.isVideo) {
             CircleButton(
+                modifier = Modifier.size(48.dp),
                 painter = painterResource(id = R.drawable.ic_play),
                 contentDescription = "Play",
                 onClick = {},

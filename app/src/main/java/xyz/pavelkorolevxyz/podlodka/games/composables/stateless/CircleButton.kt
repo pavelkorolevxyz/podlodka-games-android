@@ -24,6 +24,7 @@ import xyz.pavelkorolevxyz.podlodka.games.ui.theme.White28
 fun CircleButton(
     painter: Painter,
     contentDescription: String,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
     val strokeGradient = Brush.linearGradient(
@@ -33,8 +34,7 @@ fun CircleButton(
         ),
     )
     Button(
-        modifier = Modifier
-            .size(56.dp),
+        modifier = modifier.size(56.dp),
         contentPadding = PaddingValues(0.dp),
         shape = CircleShape,
         border = BorderStroke(1.dp, strokeGradient),
@@ -55,6 +55,17 @@ private fun BackCircleButtonPreview() {
     CircleButton(
         painter = painterResource(id = R.drawable.ic_arrow_left),
         contentDescription = "Back",
+        onClick = {},
+    )
+}
+
+@Preview
+@Composable
+private fun PlayCircleButtonPreview() {
+    CircleButton(
+        modifier = Modifier.size(48.dp),
+        painter = painterResource(id = R.drawable.ic_play),
+        contentDescription = "Play",
         onClick = {},
     )
 }
