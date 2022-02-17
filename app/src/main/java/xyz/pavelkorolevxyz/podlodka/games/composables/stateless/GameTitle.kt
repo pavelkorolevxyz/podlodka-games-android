@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -17,6 +18,7 @@ import xyz.pavelkorolevxyz.podlodka.games.R
 @Composable
 fun GameTitle(
     title: String,
+    logoPainter: Painter,
     rating: Double,
     ratingNumber: String,
 ) {
@@ -38,7 +40,7 @@ fun GameTitle(
             verticalAlignment = Alignment.Bottom,
         ) {
             Box {
-                LogoImage(painterResource(id = R.drawable.icon_dota))
+                LogoImage(painter = logoPainter)
             }
             Column(modifier = Modifier.padding(horizontal = 12.dp)) {
                 Text(
@@ -65,5 +67,10 @@ fun GameTitle(
 @Preview
 @Composable
 private fun GameTitlePreview() {
-    GameTitle(title = "DoTA 2", rating = 4.5, ratingNumber = "10K")
+    GameTitle(
+        title = "DoTA 2",
+        rating = 4.5,
+        ratingNumber = "10K",
+        logoPainter = painterResource(id = R.drawable.icon_dota),
+    )
 }

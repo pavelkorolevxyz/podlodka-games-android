@@ -43,7 +43,7 @@ fun MainContent(onBackClick: () -> Unit) {
 
 fun createMockGame(): GameDetails = GameDetails(
     headerImage = R.drawable.header_dota,
-    logoImage = 0,
+    logoImage = R.drawable.icon_dota,
     title = "DoTA 2",
     description = "Dota 2 is a multiplayer online battle arena (MOBA) game which has two teams " +
         "of five players compete to collectively destroy a large structure defended by the " +

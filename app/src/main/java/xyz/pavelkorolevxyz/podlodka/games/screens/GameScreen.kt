@@ -72,6 +72,7 @@ fun GameScreen(
                         )
                         GameTitle(
                             title = game.title,
+                            logoPainter = painterResource(id = game.logoImage),
                             rating = game.ratingInfo.rating,
                             ratingNumber = game.ratingInfo.number,
                         )
