@@ -24,8 +24,8 @@ fun RatingBar(
     count: Int = 5,
 ) {
     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-        for (i in 0 until count) {
-            RatingBarStar(i, rating)
+        repeat(count) { index ->
+            RatingBarStar(index, rating)
         }
     }
 }

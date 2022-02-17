@@ -1,10 +1,10 @@
 package xyz.pavelkorolevxyz.podlodka.games.composables
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -21,26 +21,23 @@ fun TopAppBar(
     modifier: Modifier = Modifier,
 ) {
     TopOverlay()
-    Box(
+    Row(
         modifier = modifier
             .fillMaxWidth()
             .statusBarsPadding()
             .padding(24.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
     ) {
-        Box(modifier = Modifier.align(Alignment.CenterStart)) {
-            CircleButton(
-                painter = painterResource(id = R.drawable.ic_arrow_left),
-                contentDescription = stringResource(id = R.string.description_back),
-                onClick = onNavigationItemClick,
-            )
-        }
-        Box(modifier = Modifier.align(Alignment.CenterEnd)) {
-            CircleButton(
-                painter = painterResource(id = R.drawable.ic_more),
-                contentDescription = stringResource(id = R.string.description_more),
-                onClick = onActionClick,
-            )
-        }
+        CircleButton(
+            painter = painterResource(id = R.drawable.ic_arrow_left),
+            contentDescription = stringResource(id = R.string.description_back),
+            onClick = onNavigationItemClick,
+        )
+        CircleButton(
+            painter = painterResource(id = R.drawable.ic_more),
+            contentDescription = stringResource(id = R.string.description_more),
+            onClick = onActionClick,
+        )
     }
 }
 
