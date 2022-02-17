@@ -25,36 +25,29 @@ fun GameHeader(
     ratingNumber: String,
     modifier: Modifier = Modifier,
 ) {
-    Box(
-        modifier = modifier.fillMaxHeight(),
-        contentAlignment = Alignment.BottomCenter,
-    ) {
+    Box(modifier = modifier) {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(88.dp)
+                .padding(top = 22.dp)
                 .clip(RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp))
                 .background(MaterialTheme.colorScheme.background),
-        )
-        Row(
-            modifier = Modifier
-                .padding(24.dp)
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.Bottom,
         ) {
-            Box {
-                LogoImage(painter = logoPainter)
-            }
-            Column(modifier = Modifier.padding(horizontal = 12.dp)) {
+            Column(
+                modifier = Modifier.padding(
+                    top = 12.dp,
+                    bottom = 24.dp,
+                    start = 124.dp,
+                    end = 24.dp,
+                ),
+            ) {
                 Text(
                     text = title,
                     style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onBackground,
                 )
                 Spacer(modifier = Modifier.height(7.dp))
-                Row(
-                    modifier = Modifier.padding(bottom = 8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     RatingBar(rating)
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
@@ -65,12 +58,29 @@ fun GameHeader(
                 }
             }
         }
+        LogoImage(
+            modifier = Modifier.padding(start = 24.dp),
+            painter = logoPainter,
+        )
     }
 }
 
 @Preview
 @Composable
 private fun GameTitlePreview() {
+    PodlodkaGamesTheme {
+        GameHeader(
+            title = "Defence of the Ancients: Global Offensive",
+            rating = 4.5,
+            ratingNumber = "10K",
+            logoPainter = painterResource(id = R.drawable.icon_dota),
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun GameTitleOneLinePreview() {
     PodlodkaGamesTheme {
         GameHeader(
             title = "DoTA 2",

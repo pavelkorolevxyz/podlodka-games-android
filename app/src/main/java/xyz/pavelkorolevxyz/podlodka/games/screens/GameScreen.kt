@@ -2,7 +2,6 @@ package xyz.pavelkorolevxyz.podlodka.games.screens
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -60,9 +59,7 @@ fun GameScreen(
             ) {
                 item {
                     Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(374.dp),
+                        modifier = Modifier.fillMaxWidth(),
                     ) {
                         ImageHeader(
                             modifier = Modifier.graphicsLayer {
@@ -72,6 +69,7 @@ fun GameScreen(
                             painter = painterResource(id = game.headerImage),
                         )
                         GameHeader(
+                            modifier = Modifier.padding(top = 270.dp),
                             title = game.title,
                             logoPainter = painterResource(id = game.logoImage),
                             rating = game.ratingInfo.rating,
