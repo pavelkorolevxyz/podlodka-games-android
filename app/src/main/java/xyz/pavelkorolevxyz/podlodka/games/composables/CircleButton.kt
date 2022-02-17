@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource

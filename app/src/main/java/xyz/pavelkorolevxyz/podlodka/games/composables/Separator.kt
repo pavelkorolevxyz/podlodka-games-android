@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,9 +11,11 @@ import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Mirage
 
 @Composable
-fun Separator() {
+fun Separator(
+    modifier: Modifier = Modifier,
+) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(1.dp)
             .padding(horizontal = 38.dp)

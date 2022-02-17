@@ -1,23 +1,30 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import xyz.pavelkorolevxyz.podlodka.games.data.Review
+import xyz.pavelkorolevxyz.podlodka.games.data.models.Review
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Aluminium
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.White40
 
 @Composable
-fun Review(
+fun ReviewRow(
     review: Review,
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier.padding(horizontal = 24.dp, vertical = 24.dp),
+        modifier = modifier.padding(24.dp),
     ) {
         Row {
             val author = review.author

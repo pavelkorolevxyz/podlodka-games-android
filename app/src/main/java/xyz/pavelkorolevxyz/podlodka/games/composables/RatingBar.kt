@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon

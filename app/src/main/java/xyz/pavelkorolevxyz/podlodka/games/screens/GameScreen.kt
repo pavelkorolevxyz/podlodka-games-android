@@ -24,8 +24,8 @@ import com.google.accompanist.insets.navigationBarsPadding
 import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import xyz.pavelkorolevxyz.podlodka.games.R
-import xyz.pavelkorolevxyz.podlodka.games.composables.stateless.*
-import xyz.pavelkorolevxyz.podlodka.games.data.GameDetails
+import xyz.pavelkorolevxyz.podlodka.games.composables.*
+import xyz.pavelkorolevxyz.podlodka.games.data.models.GameDetails
 
 @Composable
 fun GameScreen(
@@ -63,14 +63,14 @@ fun GameScreen(
                             .fillMaxWidth()
                             .height(374.dp),
                     ) {
-                        HeaderImage(
+                        ImageHeader(
                             modifier = Modifier.graphicsLayer {
                                 val firstVisibleItemScrollOffset = lazyListState.firstVisibleItemScrollOffset
                                 translationY = 0.12f * firstVisibleItemScrollOffset
                             },
                             painter = painterResource(id = game.headerImage),
                         )
-                        GameTitle(
+                        GameHeader(
                             title = game.title,
                             logoPainter = painterResource(id = game.logoImage),
                             rating = game.ratingInfo.rating,
@@ -105,13 +105,13 @@ fun GameScreen(
                     )
                 }
                 item {
-                    ReviewsTitle(
+                    RatingRow(
                         rating = game.ratingInfo.rating,
                         ratingNumber = game.ratingInfo.number,
                     )
                 }
                 itemsIndexed(game.reviews) { index, item ->
-                    Review(review = item)
+                    ReviewRow(review = item)
                     if (index < game.reviews.lastIndex) {
                         Separator()
                     }

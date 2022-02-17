@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
@@ -12,22 +12,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
+import xyz.pavelkorolevxyz.podlodka.games.data.models.Tag
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PictonBlue
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PictonBlue24
 
 @Composable
 fun TagsFlowRow(
-    tags: List<String>,
-    onTagClick: (String) -> Unit,
+    tags: List<Tag>,
+    onTagClick: (Tag) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     FlowRow(
-        modifier = Modifier.padding(horizontal = 24.dp),
+        modifier = modifier.padding(horizontal = 24.dp),
         mainAxisSpacing = 10.dp,
         crossAxisSpacing = 10.dp,
     ) {
         for (tag in tags) {
-            Tag(
-                title = tag,
+            TagItem(
+                tag = tag,
                 onClick = { onTagClick(tag) },
             )
         }
@@ -35,19 +37,20 @@ fun TagsFlowRow(
 }
 
 @Composable
-fun Tag(
-    title: String,
+fun TagItem(
+    tag: Tag,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Button(
-        modifier = Modifier.height(22.dp),
+        modifier = modifier.height(22.dp),
         colors = ButtonDefaults.buttonColors(containerColor = PictonBlue24),
         contentPadding = PaddingValues(),
         onClick = onClick,
     ) {
         Text(
             modifier = Modifier.padding(horizontal = 10.dp),
-            text = title.uppercase(),
+            text = tag.title.uppercase(),
             style = MaterialTheme.typography.labelSmall,
             color = PictonBlue,
         )
@@ -57,8 +60,8 @@ fun Tag(
 @Preview
 @Composable
 private fun TagPreview() {
-    Tag(
-        title = "Tag",
+    TagItem(
+        tag = Tag("Tag"),
         onClick = {},
     )
 }
@@ -67,7 +70,11 @@ private fun TagPreview() {
 @Composable
 private fun TagsFlowRowPreview() {
     TagsFlowRow(
-        tags = listOf("strategy", "action", "shooter"),
+        tags = listOf(
+            Tag("strategy"),
+            Tag("action"),
+            Tag("shooter"),
+        ),
         onTagClick = {},
     )
 }

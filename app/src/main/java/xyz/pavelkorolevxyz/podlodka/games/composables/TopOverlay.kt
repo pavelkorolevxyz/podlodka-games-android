@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,7 +12,9 @@ import xyz.pavelkorolevxyz.podlodka.games.ui.theme.BlackPearl
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.BlackPearl0
 
 @Composable
-fun TopOverlay() {
+fun TopOverlay(
+    modifier: Modifier = Modifier,
+) {
     val gradientHeight = 100.dp
     val gradient = Brush.verticalGradient(
         colors = listOf(
@@ -21,7 +23,7 @@ fun TopOverlay() {
         ),
     )
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(gradientHeight)
             .background(gradient),

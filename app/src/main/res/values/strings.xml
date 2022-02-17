@@ -8,5 +8,6 @@
     <string name="description_more">More</string>
 
     <string name="reviews_title">Review &amp; Ratings</string>
+    <string name="reviews_number">%1$s Reviews</string>
 
 </resources>

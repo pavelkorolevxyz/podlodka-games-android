@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.LocalIndication
@@ -17,7 +17,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
-import xyz.pavelkorolevxyz.podlodka.games.data.Media
+import xyz.pavelkorolevxyz.podlodka.games.data.models.Media
 
 @Composable
 fun MediaLazyRow(

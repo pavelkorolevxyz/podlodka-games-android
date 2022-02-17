@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.data
+package xyz.pavelkorolevxyz.podlodka.games.data.models
 
 import androidx.annotation.DrawableRes
 

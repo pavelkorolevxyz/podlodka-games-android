@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -15,10 +15,13 @@ import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.EbonyClay
 
 @Composable
-fun LogoImage(painter: Painter) {
+fun LogoImage(
+    painter: Painter,
+    modifier: Modifier = Modifier,
+) {
     val shape = RoundedCornerShape(12.dp)
     Image(
-        modifier = Modifier
+        modifier = modifier
             .size(88.dp)
             .border(2.dp, EbonyClay, shape)
             .clip(shape),

@@ -1,4 +1,4 @@
-package xyz.pavelkorolevxyz.podlodka.games.composables.stateless
+package xyz.pavelkorolevxyz.podlodka.games.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -16,14 +16,15 @@ import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
 
 @Composable
-fun GameTitle(
+fun GameHeader(
     title: String,
     logoPainter: Painter,
     rating: Double,
     ratingNumber: String,
+    modifier: Modifier = Modifier,
 ) {
     Box(
-        modifier = Modifier.fillMaxHeight(),
+        modifier = modifier.fillMaxHeight(),
         contentAlignment = Alignment.BottomCenter,
     ) {
         Box(
@@ -67,7 +68,7 @@ fun GameTitle(
 @Preview
 @Composable
 private fun GameTitlePreview() {
-    GameTitle(
+    GameHeader(
         title = "DoTA 2",
         rating = 4.5,
         ratingNumber = "10K",
