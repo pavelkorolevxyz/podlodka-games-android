@@ -1,7 +1,10 @@
 package xyz.pavelkorolevxyz.podlodka.games.composables
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
@@ -12,8 +15,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.EbonyClay
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Saffron
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.backgroundVariant
 
 @Composable
 fun RatingBar(
@@ -37,7 +40,7 @@ fun RatingBarStar(
         Icon(
             painter = starPainter,
             contentDescription = null,
-            tint = EbonyClay,
+            tint = MaterialTheme.colorScheme.backgroundVariant,
         )
         val part = rating - index
         val modifier = if (part > 1) {
@@ -60,7 +63,7 @@ fun RatingBarStar(
             modifier = modifier,
             painter = starPainter,
             contentDescription = null,
-            tint = Saffron,
+            tint = MaterialTheme.colorScheme.primary,
         )
     }
 }
@@ -68,23 +71,31 @@ fun RatingBarStar(
 @Preview
 @Composable
 private fun RatingBarGoodPreview() {
-    RatingBar(rating = 4.5, count = 5)
+    PodlodkaGamesTheme {
+        RatingBar(rating = 4.5, count = 5)
+    }
 }
 
 @Preview
 @Composable
 private fun RatingBarOkPreview() {
-    RatingBar(rating = 2.3, count = 5)
+    PodlodkaGamesTheme {
+        RatingBar(rating = 2.3, count = 5)
+    }
 }
 
 @Preview
 @Composable
 private fun RatingBarEmptyPreview() {
-    RatingBar(rating = 0.0, count = 5)
+    PodlodkaGamesTheme {
+        RatingBar(rating = 0.0, count = 5)
+    }
 }
 
 @Preview
 @Composable
 private fun RatingBarTenPreview() {
-    RatingBar(rating = 9.0, count = 10)
+    PodlodkaGamesTheme {
+        RatingBar(rating = 9.0, count = 10)
+    }
 }

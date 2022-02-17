@@ -12,9 +12,9 @@ import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.data.models.Review
 import xyz.pavelkorolevxyz.podlodka.games.data.models.User
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Aluminium
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.White40
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.onBackgroundSecondary
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.onBackgroundTertiary
 
 @Composable
 fun ReviewRow(
@@ -41,7 +41,7 @@ fun ReviewRow(
                 Text(
                     text = review.date,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = White40,
+                    color = MaterialTheme.colorScheme.onBackgroundTertiary
                 )
             }
         }
@@ -49,7 +49,7 @@ fun ReviewRow(
         Text(
             text = review.message,
             style = MaterialTheme.typography.bodyMedium,
-            color = Aluminium,
+            color = MaterialTheme.colorScheme.onBackgroundSecondary,
         )
     }
 }

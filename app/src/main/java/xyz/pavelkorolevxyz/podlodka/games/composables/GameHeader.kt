@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.onBackgroundTertiaryVariant
 
 @Composable
 fun GameHeader(
@@ -59,6 +60,7 @@ fun GameHeader(
                     Text(
                         text = ratingNumber,
                         style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onBackgroundTertiaryVariant,
                     )
                 }
             }

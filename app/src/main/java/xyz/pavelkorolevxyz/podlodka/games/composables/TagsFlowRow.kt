@@ -3,18 +3,14 @@ package xyz.pavelkorolevxyz.podlodka.games.composables
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
 import xyz.pavelkorolevxyz.podlodka.games.data.models.Tag
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PictonBlue
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PictonBlue24
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
 
 @Composable
 fun TagsFlowRow(
@@ -42,9 +38,13 @@ fun TagItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val buttonContainerColor = MaterialTheme.colorScheme.secondaryContainer
     Button(
         modifier = modifier.height(22.dp),
-        colors = ButtonDefaults.buttonColors(containerColor = PictonBlue24),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = buttonContainerColor,
+            contentColor = MaterialTheme.colorScheme.contentColorFor(buttonContainerColor),
+        ),
         contentPadding = PaddingValues(),
         onClick = onClick,
     ) {
@@ -52,7 +52,6 @@ fun TagItem(
             modifier = Modifier.padding(horizontal = 10.dp),
             text = tag.title.uppercase(),
             style = MaterialTheme.typography.labelSmall,
-            color = PictonBlue,
         )
     }
 }
@@ -60,21 +59,25 @@ fun TagItem(
 @Preview
 @Composable
 private fun TagPreview() {
-    TagItem(
-        tag = Tag("Tag"),
-        onClick = {},
-    )
+    PodlodkaGamesTheme {
+        TagItem(
+            tag = Tag("Tag"),
+            onClick = {},
+        )
+    }
 }
 
 @Preview
 @Composable
 private fun TagsFlowRowPreview() {
-    TagsFlowRow(
-        tags = listOf(
-            Tag("strategy"),
-            Tag("action"),
-            Tag("shooter"),
-        ),
-        onTagClick = {},
-    )
+    PodlodkaGamesTheme {
+        TagsFlowRow(
+            tags = listOf(
+                Tag("strategy"),
+                Tag("action"),
+                Tag("shooter"),
+            ),
+            onTagClick = {},
+        )
+    }
 }

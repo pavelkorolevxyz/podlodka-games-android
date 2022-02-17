@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.data.models.Media
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
 
 @Composable
 fun MediaLazyRow(
@@ -76,22 +77,26 @@ fun MediaItem(
 @Preview
 @Composable
 private fun MediaItemVideoPreview() {
-    MediaItem(
-        media = Media(
-            thumbnail = R.drawable.screenshot_dota_1,
-            isVideo = true,
-        ),
-        onClick = {},
-    )
+    PodlodkaGamesTheme {
+        MediaItem(
+            media = Media(
+                thumbnail = R.drawable.screenshot_dota_1,
+                isVideo = true,
+            ),
+            onClick = {},
+        )
+    }
 }
 
 @Preview
 @Composable
 private fun MediaItemImagePreview() {
-    MediaItem(
-        media = Media(
-            thumbnail = R.drawable.screenshot_dota_2,
-        ),
-        onClick = {},
-    )
+    PodlodkaGamesTheme {
+        MediaItem(
+            media = Media(
+                thumbnail = R.drawable.screenshot_dota_2,
+            ),
+            onClick = {},
+        )
+    }
 }

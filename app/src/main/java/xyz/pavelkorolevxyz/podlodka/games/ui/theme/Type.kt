@@ -1,7 +1,6 @@
 package xyz.pavelkorolevxyz.podlodka.games.ui.theme
 
 import androidx.compose.material3.Typography
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -29,13 +28,11 @@ val Typography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 16.sp,
         letterSpacing = 0.6.sp,
-        color = LinkWater,
     ),
     labelMedium = TextStyle(
         fontFamily = skModernistFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
-        color = Abbey,
     ),
     labelSmall = TextStyle(
         fontFamily = montserratFontFamily,
@@ -47,7 +44,6 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
         lineHeight = 19.sp,
-        color = LinkWater70,
     ),
     bodyMedium = TextStyle(
         fontFamily = skModernistFontFamily,
@@ -55,18 +51,15 @@ val Typography = Typography(
         fontSize = 12.sp,
         letterSpacing = 0.5.sp,
         lineHeight = 19.sp,
-        color = LinkWater70,
     ),
     bodyLarge = TextStyle(
         fontFamily = skModernistFontFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
-        color = Color.White,
     ),
     headlineLarge = TextStyle(
         fontFamily = skModernistFontFamily,
         fontWeight = FontWeight.Bold,
         fontSize = 48.sp,
-        color = Color.White,
     ),
 )

@@ -26,6 +26,7 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import xyz.pavelkorolevxyz.podlodka.games.R
 import xyz.pavelkorolevxyz.podlodka.games.composables.*
 import xyz.pavelkorolevxyz.podlodka.games.data.models.GameDetails
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.onBackgroundSecondary
 
 @Composable
 fun GameScreen(
@@ -89,6 +90,7 @@ fun GameScreen(
                         modifier = Modifier.padding(24.dp),
                         text = game.description,
                         style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onBackgroundSecondary,
                     )
                 }
                 item {

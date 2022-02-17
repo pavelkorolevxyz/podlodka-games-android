@@ -10,7 +10,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Aluminium
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.onBackgroundTertiaryVariant
 
 @Composable
 fun RatingRow(
@@ -33,7 +34,7 @@ fun RatingRow(
             Text(
                 text = stringResource(id = R.string.reviews_number, ratingNumber),
                 style = MaterialTheme.typography.labelMedium,
-                color = Aluminium,
+                color = MaterialTheme.colorScheme.onBackgroundTertiaryVariant,
             )
         }
     }
@@ -42,5 +43,7 @@ fun RatingRow(
 @Preview
 @Composable
 private fun ReviewTitlePreview() {
-    RatingRow(rating = 3.7, ratingNumber = "30K")
+    PodlodkaGamesTheme {
+        RatingRow(rating = 3.7, ratingNumber = "30K")
+    }
 }

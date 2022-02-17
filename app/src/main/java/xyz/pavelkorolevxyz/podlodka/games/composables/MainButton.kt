@@ -12,8 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.navigationBarsPadding
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.BlackPearl
-import xyz.pavelkorolevxyz.podlodka.games.ui.theme.Saffron
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
 
 @Composable
 fun MainButton(
@@ -28,13 +27,13 @@ fun MainButton(
             .fillMaxWidth()
             .height(64.dp),
         shape = RoundedCornerShape(12.dp),
-        containerColor = Saffron,
+        containerColor = MaterialTheme.colorScheme.primary,
         onClick = onClick,
         text = {
             Text(
                 text = text,
                 style = MaterialTheme.typography.titleLarge,
-                color = BlackPearl,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
             )
         },
     )
@@ -43,8 +42,10 @@ fun MainButton(
 @Preview
 @Composable
 private fun MainButtonPreview() {
-    MainButton(
-        text = "Click",
-        onClick = {},
-    )
+    PodlodkaGamesTheme {
+        MainButton(
+            text = "Click",
+            onClick = {},
+        )
+    }
 }
