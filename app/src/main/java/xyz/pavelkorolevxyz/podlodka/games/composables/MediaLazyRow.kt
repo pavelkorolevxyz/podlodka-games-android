@@ -75,11 +75,22 @@ fun MediaItem(
 
 @Preview
 @Composable
-fun MediaItemPreview() {
+private fun MediaItemVideoPreview() {
     MediaItem(
         media = Media(
             thumbnail = R.drawable.screenshot_dota_1,
             isVideo = true,
+        ),
+        onClick = {},
+    )
+}
+
+@Preview
+@Composable
+private fun MediaItemImagePreview() {
+    MediaItem(
+        media = Media(
+            thumbnail = R.drawable.screenshot_dota_2,
         ),
         onClick = {},
     )

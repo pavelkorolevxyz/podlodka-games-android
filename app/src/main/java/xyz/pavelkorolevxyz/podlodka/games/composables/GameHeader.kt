@@ -14,6 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import xyz.pavelkorolevxyz.podlodka.games.R
+import xyz.pavelkorolevxyz.podlodka.games.ui.theme.PodlodkaGamesTheme
 
 @Composable
 fun GameHeader(
@@ -68,10 +69,12 @@ fun GameHeader(
 @Preview
 @Composable
 private fun GameTitlePreview() {
-    GameHeader(
-        title = "DoTA 2",
-        rating = 4.5,
-        ratingNumber = "10K",
-        logoPainter = painterResource(id = R.drawable.icon_dota),
-    )
+    PodlodkaGamesTheme {
+        GameHeader(
+            title = "DoTA 2",
+            rating = 4.5,
+            ratingNumber = "10K",
+            logoPainter = painterResource(id = R.drawable.icon_dota),
+        )
+    }
 }

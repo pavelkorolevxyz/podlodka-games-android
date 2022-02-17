@@ -41,6 +41,6 @@ fun RatingRow(
 
 @Preview
 @Composable
-fun ReviewTitlePreview() {
+private fun ReviewTitlePreview() {
     RatingRow(rating = 3.7, ratingNumber = "30K")
 }
