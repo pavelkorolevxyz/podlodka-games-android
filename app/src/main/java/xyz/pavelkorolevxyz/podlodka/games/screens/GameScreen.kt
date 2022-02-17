@@ -30,6 +30,7 @@ import xyz.pavelkorolevxyz.podlodka.games.ui.theme.onBackgroundSecondary
 @Composable
 fun GameScreen(
     game: GameDetails,
+    onActionClick: () -> Unit,
     onBackClick: () -> Unit,
 ) {
     val systemUiController = rememberSystemUiController()
@@ -42,7 +43,7 @@ fun GameScreen(
         floatingActionButton = {
             MainButton(
                 text = stringResource(id = R.string.action_install),
-                onClick = {},
+                onClick = onActionClick,
             )
         },
         floatingActionButtonPosition = FabPosition.Center,

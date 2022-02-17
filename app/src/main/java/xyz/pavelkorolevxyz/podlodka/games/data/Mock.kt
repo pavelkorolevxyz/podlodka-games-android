@@ -5,7 +5,10 @@ import xyz.pavelkorolevxyz.podlodka.games.data.models.*
 
 object Mock {
 
-    fun createGame(): GameDetails = createDota()
+    fun createGames(): List<GameDetails> = listOf(
+        createDota(),
+        createCounterStrike(),
+    )
 
     private fun createDota(): GameDetails = GameDetails(
         headerImage = R.drawable.header_dota,
@@ -72,6 +75,10 @@ object Mock {
         ),
         mediaList = listOf(
             Media(
+                thumbnail = R.drawable.screenshot_cs_3,
+                isVideo = true,
+            ),
+            Media(
                 thumbnail = R.drawable.screenshot_cs_1,
                 isVideo = true,
             ),
@@ -80,12 +87,8 @@ object Mock {
                 isVideo = false,
             ),
             Media(
-                thumbnail = R.drawable.screenshot_cs_3,
-                isVideo = false,
-            ),
-            Media(
                 thumbnail = R.drawable.screenshot_cs_4,
-                isVideo = false,
+                isVideo = true,
             ),
         ),
         ratingInfo = RatingInfo(
